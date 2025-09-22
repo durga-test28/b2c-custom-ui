@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Handlebars.js Upgrade Test</title>
+  <meta charset="UTF-8" />
+  <title>Custom Login Page</title>
+
+  <!-- Load Handlebars.js v4.7.7 -->
+  <script src="https://durga-test28.github.io/b2c-custom-ui/scripts/handlebars.min.js"></script>
+
+  <!-- Optional: Log version to console -->
+  <script>
+    window.onload = function () {
+      if (window.Handlebars) {
+        console.log("Handlebars version:", Handlebars.VERSION);
+      } else {
+        console.error("Handlebars not loaded.");
+      }
+    };
+  </script>
+
+  <!-- Required B2C layout metadata -->
+  <meta name="layout" content="true" />
 </head>
 <body>
-  <h1>Handlebars.js Upgrade Test</h1>
-  <p>This test checks if your tenant supports upgraded Handlebars helpers like <code>{{#ifEquals}}</code>.</p>
-
-  <!-- Handlebars Template Block -->
-  <script id="template" type="text/x-handlebars-template">
-    {{#ifEquals user.displayName "Admin"}}
-      <p>✅ Welcome, Admin! Handlebars upgrade is working.</p>
-    {{else}}
-      <p>✅ Welcome, {{user.displayName}}! Handlebars upgrade is working.</p>
-    {{/ifEquals}}
-  </script>
+  <!-- Required container for B2C to inject content -->
+  <div id="api"></div>
 </body>
 </html>
