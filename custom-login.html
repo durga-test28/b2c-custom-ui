@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Custom Login Page</title>
+
+  <!-- Required for Azure B2C to recognize this as a layout -->
   <meta name="layout" content="true" />
 
-  <!-- Load Handlebars.js v4.7.7 from CDN -->
+  <!-- Load Handlebars.js v4.7.7 from CDN (reliable) -->
   <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
 
   <!-- Confirm Handlebars version after load -->
@@ -20,6 +22,7 @@
   </script>
 </head>
 <body>
+  <!-- Required container for B2C to inject its UI -->
   <div id="api"></div>
 </body>
 </html>
