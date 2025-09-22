@@ -2,36 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>B2C Handlebars Test</title>
+  <title>B2C Handlebars.js Upgrade Test</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
+      padding: 40px;
+      background-color: #f9f9f9;
     }
-    .box {
-      background: #f4f4f4;
-      border-radius: 8px;
-      padding: 15px;
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
       margin-bottom: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    h2 {
-      margin-top: 0;
+    .result {
+      font-size: 18px;
+      color: #555;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Azure B2C Handlebars.js Version Test</h1>
- 
-  <div class="box">
-    <h2>Built-in Handlebars.js</h2>
-    <p id="builtin"></p>
+  <div class="container">
+    <h1>Azure AD B2C Handlebars.js Test</h1>
+    <p>This test checks if your tenant supports upgraded Handlebars features like <code>{{#ifEquals}}</code>.</p>
+
+    <!-- Handlebars Template Block -->
+    <script id="template" type="text/x-handlebars-template">
+      {{#ifEquals user.displayName "Admin"}}
+        <div class="result">✅ Welcome, Admin! Handlebars upgrade is working.</div>
+      {{else}}
+        <div class="result">✅ Welcome, {{user.displayName}}! Handlebars upgrade is working.</div>
+      {{/ifEquals}}
+    </script>
+
+    <!-- Fallback Message -->
+    <noscript>
+      <div class="result">⚠️ JavaScript is disabled. Please enable it to test Handlebars.</div>
+    </noscript>
   </div>
- 
-  <div class="box">
-    <h2>Injected Handlebars.js</h2>
-    <p id="custom"></p>
-  </div>
- 
-  <!-- Load your own Handlebars.js (latest secure version) -->
-  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+</body>
+</html>
