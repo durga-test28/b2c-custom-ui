@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <title>Custom Login Page</title>
-
-  <!-- Required for Azure AD B2C to recognize this as a layout -->
   <meta name="layout" content="true" />
 
-  <!-- Load Handlebars.js v4.7.7 -->
-  <script src="https://durga-test28.github.io/b2c-custom-ui/scripts/handlebars.min.js"></script>
+  <!-- Load Handlebars.js v4.7.7 from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
 
-  <!-- Confirm Handlebars version after page load -->
+  <!-- Confirm Handlebars version after load -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      if (window.Handlebars) {
+    window.addEventListener("load", function () {
+      if (window.Handlebars && window.Handlebars.VERSION) {
         console.log("✅ Handlebars version loaded:", Handlebars.VERSION);
       } else {
         console.error("❌ Handlebars.js is not loaded.");
@@ -22,7 +20,6 @@
   </script>
 </head>
 <body>
-  <!-- Required container for B2C to inject its UI -->
   <div id="api"></div>
 </body>
 </html>
