@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Custom B2C Page</title>
+  <title>Handlebars Version Test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
@@ -10,29 +10,36 @@
       padding: 2em;
       background-color: #f4f4f4;
     }
-    .test-output {
-      margin-bottom: 1em;
-      padding: 1em;
+    .version-box {
       background: #eef;
-      border-radius: 4px;
+      padding: 1em;
+      border-radius: 6px;
+      margin-bottom: 2em;
+    }
+    #api {
+      margin-top: 2em;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Custom B2C Page</h1>
+  <h1>Azure AD B2C Handlebars.js Version Check</h1>
 
-  <!-- Handlebars test expression -->
-  {{#if (lookup this "extension_ideagen_user_id")}}
-    <div class="test-output">
-      <strong>User ID:</strong> {{extension_ideagen_user_id}}
-    </div>
-  {{else}}
-    <div class="test-output">
-      <strong>No user ID found.</strong>
-    </div>
-  {{/if}}
+  <div class="version-box">
+    <strong>Handlebars.js version:</strong>
+    <span id="hb-version">Loading…</span>
+  </div>
 
   <!-- B2C form container -->
   <div id="api"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.Handlebars && Handlebars.VERSION) {
+        document.getElementById("hb-version").textContent = Handlebars.VERSION;
+      } else {
+        document.getElementById("hb-version").textContent = "Handlebars not loaded";
+      }
+    });
+  </script>
 </body>
 </html>
