@@ -2,22 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Custom B2C Page</title>
-  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 2em;
       background-color: #f4f4f4;
     }
-    #api {
-      margin-top: 2em;
+    .test-output {
+      margin-bottom: 1em;
+      padding: 1em;
+      background: #eef;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
   <h1>Welcome to Custom B2C Page</h1>
+
+  <!-- Handlebars test expression -->
+  {{#if (lookup this "extension_ideagen_user_id")}}
+    <div class="test-output">
+      <strong>User ID:</strong> {{extension_ideagen_user_id}}
+    </div>
+  {{else}}
+    <div class="test-output">
+      <strong>No user ID found.</strong>
+    </div>
+  {{/if}}
+
+  <!-- B2C form container -->
   <div id="api"></div>
 </body>
 </html>
