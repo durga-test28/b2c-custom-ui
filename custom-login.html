@@ -2,16 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B2C Custom Sign In</title>
- 
-  <!-- Handlebars.js (latest stable version) -->
-  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
- 
-  <!-- Azure AD B2C default style (optional) -->
+  <script src="https://aka.ms/cssp"></script>
   <link rel="stylesheet" href="https://login.microsoftonline.com/static/tenant/templates/AzureBlue/css/main.css" />
- 
   <style>
     body {
       font-family: "Segoe UI", Arial, sans-serif;
@@ -32,87 +26,15 @@
       margin-bottom: 1.5rem;
       color: #333;
     }
-    .form-group {
-      margin-bottom: 1rem;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      color: #444;
-    }
-    input {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    button {
-      width: 100%;
-      padding: 0.75rem;
-      background: #0078d4;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      color: #fff;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    button:hover {
-      background: #005a9e;
-    }
-    .footer {
-      text-align: center;
+    #api {
       margin-top: 1rem;
-      font-size: 0.9rem;
-      color: #666;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>Sign in</h2>
- 
-    <!-- Handlebars template -->
-    <script id="signin-template" type="text/x-handlebars-template">
-      <form>
-        <div class="form-group">
-          <label for="username">Email</label>
-          <input type="email" id="username" name="username" placeholder="Enter your email" required />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter your password" required />
-        </div>
-        <button type="submit">Sign in</button>
-      </form>
-    </script>
- 
-    <!-- Render template -->
-    <div id="form-container"></div>
+    <div id="api"></div>
   </div>
- 
-  <div class="footer">
-    <p>Powered by Azure AD B2C | Handlebars.js v{{handlebarsVersion}}</p>
-  </div>
- 
-  <script>
-    // Get Handlebars version dynamically
-    const hbVersion = Handlebars.VERSION;
- 
-    // Grab template
-    const templateSource = document.getElementById("signin-template").innerHTML;
-    const template = Handlebars.compile(templateSource);
- 
-    // Render template with context
-    document.getElementById("form-container").innerHTML = template({
-      handlebarsVersion: hbVersion
-    });
- 
-    // Show version in footer
-    document.querySelector(".footer p").innerHTML =
-      "Powered by Azure AD B2C | Handlebars.js v" + hbVersion;
-  </script>
 </body>
 </html>
